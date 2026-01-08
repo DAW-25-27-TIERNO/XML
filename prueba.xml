@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Esto es un comentario -->
+<!-- La primera línea define el tipo de documento, la versión XML, etc -->
+<films>
+    <film>
+        <title>Titanic</title>
+        <director>James Cameron</director>
+        <duration>180</duration>
+        <year>1997</year>
+        <cast>
+            <actor_actress>Kate Winslet</actor_actress>
+            <actor_actress>Leonardo di Caprio</actor_actress>
+        </cast>
+    </film>
+    <film>
+        <title>Avatar</title>
+        <director>James Cameron</director>
+        <duration>210</duration>
+        <year>2005</year>
+        <cast>
+            <actor_actress>asdf</actor_actress>
+            <actor_actress>fdsa</actor_actress>
+        </cast>
+    </film>
+</films>
