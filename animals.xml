@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<animals>
+    <animal>
+        <name id="59">Leo</name>
+        <height>56</height>
+        <weight>30</weight>
+        <species>Mamífero</species>
+        <food type="meat"/> <!--elemento vacío. equivale a: <food></food> -->
+        <paragraph>
+            Leo es un león
+            que mide 56 y 
+            pesa 30
+        </paragraph>
+        <html>
+            <![CDATA[ 
+                <p>león con</p>
+                <ul>
+                    <li>Altura: 56</li>
+                    <li>Peso: 30</li>
+                </ul>
+            ]]>
+        </html>
+        <family>
+            <![CDATA[ 
+                Leo <> Simba <> Mufasa
+            ]]>
+        </family>
+        <family>
+            Leo &lt;&gt; Simba &lt;&gt; Mufasa
+        </family>
+        <noise>
+            <![CDATA[ 
+                <script>alert("rrrrr");</script>
+            ]]>
+        </noise>
+    </animal> 
+
+    <animal>
+        <name id="60">Peppa Pig</name>
+        <height>56</height>
+        <weight>30</weight>
+        <species>Mamífero</species>
+        <html>
+            <![CDATA[ 
+                <div><h2>Peppa Pig</h2>
+                <p>56, 30 - Mamífero</p></div>
+            ]]>
+        </html>
+    </animal>
+
+    <animal>
+        <name id="62" species="Mamífero" height="56" weight="30">Bob Esponja</name>
+    </animal>
+    -->
+</animals>
