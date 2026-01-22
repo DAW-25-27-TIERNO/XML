@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippets>
+    <snippet>
+        <cabecera-web>
+            <![CDATA[ 
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Aquí el título</title>
+            </head>
+            ]]>
+        </cabecera-web>
+    </snippet>
+    <snippet>
+        <pie-web>
+            <![CDATA[ 
+            <footer>
+                <div>Copyright</div>
+            </footer>
+            ]]>
+        </pie-web>
+    </snippet>
+</snippets>
