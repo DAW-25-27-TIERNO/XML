@@ -2,6 +2,7 @@
 <!DOCTYPE university_library SYSTEM "university-library.dtd">
 <university_library>
   <department name="Computer Science" code="CS">
+    
     <course course_id="CS101">
       <course_name>Programming Fundamentals</course_name>
       <required_textbooks>
