@@ -6,6 +6,7 @@
 <!-- Root element: contains one or more books -->
 <!ELEMENT library (book+)>
 
+
 <!-- Book element structure -->
 <!ELEMENT book (title, author+, publication, genre*, isbn, price, description?)>
 
@@ -36,6 +37,7 @@
 <!ELEMENT description (#PCDATA)*>
 
 <!-- Attribute declarations -->
+<!ATTLIST title language CDATA "ar">
 
 <!-- Book attributes -->
 <!ATTLIST book

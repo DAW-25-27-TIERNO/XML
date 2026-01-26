@@ -1,0 +1,38 @@
+<!ELEMENT university_library (department+, library_services)>
+
+<!ELEMENT department (course)>
+
+<!ELEMENT course (course_name, required_textbooks, recommended_readings)>
+<!ELEMENT course_name (#PCDATA)>
+<!ELEMENT required_textbooks (textbook)>
+<!ELEMENT textbook (title, authors, edition, publisher, year, library_copies)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT authors (author+)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT edition (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT library_copies (#PCDATA)>
+<!ELEMENT recommended_readings (online_resource)>
+<!ELEMENT online_resource (title, url)>
+<!ELEMENT url (#PCDATA)>
+
+<!ELEMENT library_services (service)>
+<!ELEMENT service (service_name?, available_to, max_items_per_month, fee+)>
+<!ELEMENT service_name (#PCDATA)>
+<!ELEMENT available_to (#PCDATA)>
+<!ELEMENT max_items_per_month (#PCDATA)>
+<!ELEMENT fee (#PCDATA)>
+
+<!--Los atributos pueden ir al final -->
+<!ATTLIST department name CDATA #REQUIRED
+            code ID #REQUIRED>
+<!ATTLIST course course_id ID #REQUIRED>
+<!ATTLIST textbook isbn CDATA #REQUIRED
+format CDATA "physical">
+<!ATTLIST library_copies total CDATA #REQUIRED
+available CDATA #REQUIRED
+reserved CDATA #REQUIRED>
+<!ATTLIST online_resource access_type (free|payment) #REQUIRED>
+<!ATTLIST service service_id ID #REQUIRED>
+<!ATTLIST fee currency (EUR|USD|LIR) #REQUIRED>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE library SYSTEM "library.dtd">
+<library>
+    <book id="a9zq" available="no" format="hardcover">
+        <title language="en">Metamorfosis</title>
+        <author>
+            <firstname>Franz</firstname>
+            <lastname>Kafka</lastname>
+            <nationality>República Checa</nationality>  <!-- 0 o 1 -->
+        </author>
+        <publication>
+            <publisher>&library-name;</publisher>
+            <year>1915</year>
+            <edition>Edi</edition>  <!-- 0 o 1 -->
+        </publication>
+        <genre>Novel</genre>
+        <genre>Absurd</genre>
+        <genre>Fantasy</genre>
+        <isbn>asdf</isbn>
+        <price currency="GBP" tax-included="yes">87</price>
+    </book>
+
+    <book id="asdf" available="no" format="hardcover">
+        <title language="en">Metamorfosis</title>
+        <author>
+            <firstname>Franz</firstname>
+            <lastname>Kafka</lastname>
+        </author>
+        <publication>
+            <publisher>Publisher&lt;Guau</publisher>
+            <year>1915</year>
+            <edition>Edi</edition>  <!-- 0 o 1 -->
+        </publication>
+        <genre>Novel</genre>
+        <genre>Absurd</genre>
+        <genre>Fantasy</genre>
+        <isbn>asdf</isbn>
+        <price currency="EUR" tax-included="yes">87 &default-currency;</price>
+    </book>
+
+</library>
