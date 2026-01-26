@@ -32,9 +32,8 @@
 <!ELEMENT price (#PCDATA)>
 
 <!-- Optional description with mixed content -->
-<!ELEMENT description (#PCDATA|em|strong)*>
-<!ELEMENT em (#PCDATA)>
-<!ELEMENT strong (#PCDATA)>
+<!-- Tienes que garantizar que description pueda tener dentro etiquetas HTML -->
+<!ELEMENT description (#PCDATA)*>
 
 <!-- Attribute declarations -->
 
