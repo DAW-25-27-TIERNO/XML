@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands
+    xmlns="http://tierno.es"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tierno.es commandsv1.xsd"
+>101</commands>
+
+
+
+<!--<commands>
+    <command>
+        <name>find</name>
+        <description>Busca archivos</description>
+        <example terminal="yes">find file.txt</example>
+    </command>
+</commands>-->

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands xmlns="http://tierno.es"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://tierno.es commandsv2.xsd">
+    <name>find</name>
+    <description>Busca</description>
+</commands>
