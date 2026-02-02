@@ -1,4 +1,7 @@
-<classes>
+<classes
+    xmlns="http://tierno.es/poo"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tierno.es/poo poo.xsd">
     <final>
         <definition>Clase final que no admite herencia</definition>
         <declaration languaje="java">public final class [name] { }</declaration>
