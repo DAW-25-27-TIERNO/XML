@@ -3,6 +3,10 @@
         <definition>Clase final que no admite herencia</definition>
         <declaration languaje="java">public final class [name] { }</declaration>
         <declaration languaje="php">final class [name] { }</declaration>
-        
     </final>
+    <abstract>
+        <definition>Clase de la que no se pueden instanciar objetos</definition>
+        <declaration lang="java">public abstract class [name]</declaration>
+        <declaration lang="php">abstract class [name]</declaration>
+    </abstract>
 </classes>
