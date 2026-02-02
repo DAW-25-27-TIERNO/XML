@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<duck xmlns="http://tierno.es/duck"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tierno.es/duck duck.xsd">
+    <name>Donald</name> <!-- string -->
+    <weight>14.36</weight> <!-- decimal -->
+    <type>Duclair</type> <!--Uno de estos Orpington, Duclair, Rouen-->
+    <wings fly="true"/>
+    <habitat>
+        <type>Retiro</type>
+        <city>Madrid</city> <!-- opcional -->
+        <food>Bread</food>
+        <food>Grains</food>
+        <food>Insects</food>
+        <!-- quiero que haya mínimo 2 y máx 5-->
+        <trees>Hayas</trees>
+        <trees>Plátano de sombra</trees>
+    </habitat>
+    <height>99</height> <!-- altura entre 1 y 99-->
+    <description>Es el mejor pato del mundo</description> <!-- mínimo 10 y máximo 100 caracteres-->
+    <speed unit="km/h">10</speed>
+    <!-- si no aparece el atributo unit, que sea m/s por defecto -->
+</duck>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://tierno.es/duck"
+    elementFormDefault="qualified">
+    <xs:element name="duck">
+        <xs:complexType>
+            <xs:sequence>   <!-- subelementos: todos y en orden-->
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="weight" type="xs:double" />
+                <xs:element name="type" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Duclair"/>
+                            <xs:enumeration value="Orpington"/>
+                            <xs:enumeration value="Rouen"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+
+                <xs:element name="wings">
+                    <xs:complexType>
+                        <!-- defino el atributo -->
+                        <xs:attribute name="fly" type="xs:boolean" />
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="habitat">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="type" type="xs:string"/>
+                            <xs:element name="city" type="xs:string" minOccurs="0"/>
+                            <xs:element name="food" type="xs:string" maxOccurs="unbounded"/>
+                            <xs:element name="trees" type="xs:string" minOccurs="2" maxOccurs="5"/>
+                        </xs:sequence> 
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="height" >
+                    <xs:simpleType>
+                        <xs:restriction base="xs:positiveInteger">
+                            <xs:minInclusive value="1"/>
+                            <xs:maxInclusive value="99"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="description">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="10"></xs:minLength>
+                            <xs:maxLength value="100"></xs:maxLength>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="speed">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:positiveInteger">
+                                <xs:attribute name="unit" type="xs:string" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

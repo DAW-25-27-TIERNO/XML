@@ -1,0 +1,8 @@
+<classes>
+    <final>
+        <definition>Clase final que no admite herencia</definition>
+        <declaration languaje="java">public final class [name] { }</declaration>
+        <declaration languaje="php">final class [name] { }</declaration>
+        
+    </final>
+</classes>
