@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://tierno.es/music"
+    elementFormDefault="qualified"
+    xmlns:tns="http://tierno.es/music">
+    <xs:element name="singer">
+        <!-- singer es complejo porque tiene subelementos -->
+        <xs:complexType>
+            <xs:sequence>
+                <!-- elemento name -->
+                <xs:element name="name">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <!-- este string es por Bad Bunny, no por PR-->
+                            <xs:extension base="xs:string">
+                                <!-- este string es por PR-->
+                                <xs:attribute name="nationality" type="tns:Nationality"
+                                    use="required" />
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- elemento age -->
+                <xs:element name="age">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                            <xs:minInclusive value="0" />
+                            <xs:maxInclusive value="110" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <!-- awards -->
+                <xs:element name="awards" minOccurs="0" type="tns:AwardsType" />
+
+                <!-- gender -->
+                <xs:element name="gender" minOccurs="0" type="tns:GenderType" />
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- declaro el elemento simple (enumeración) de nationality -->
+    <xs:simpleType name="Nationality">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PR" />
+            <xs:enumeration value="Spain" />
+            <xs:enumeration value="Colombia" />
+            <xs:enumeration value="Others" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="AwardsType">
+        <xs:sequence>
+            <xs:element name="award" type="xs:string" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="GenderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Mujer" />
+            <xs:enumeration value="Hombre" />
+            <xs:enumeration value="No binario" />
+            <xs:enumeration value="Otros" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

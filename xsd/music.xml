@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+nationality solo puede tener "PR" / "Spain" / "Colombia" / "other"
+age tiene que se un número entre 0 y 110
+awards es elemento opcional, y dentro puede tener tener varios award
+gender es opcional: mujer / hombre / no binario / otros
+-->
+<singer
+    xmlns="http://tierno.es/music"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://tierno.es/music music.xsd">
+    <name nationality="PR">Bad Bunny</name>
+    <age>34</age>
+    <awards>
+        <award>Grammy</award>
+        <award>MTV</award>
+    </awards>
+    <gender>Otros</gender>
+</singer>

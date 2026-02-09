@@ -1,58 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://tierno.es/poo"
+    xmlns:tns="http://tierno.es/poo"
     elementFormDefault="qualified">
     <xs:element name="classes">
         <xs:complexType>
             <xs:sequence>
                 <!-- Aquí definición del elemento final -->
-                <xs:element name="final">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <!-- definition -->
-                            <xs:element name="definition" type="xs:string" />
-                            <!-- declaration -->
-                            <xs:element name="declaration" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:string"> <!-- este xs:string se
-                                            refiere al
-                                        contenido del elemento -->
-                                            <xs:attribute name="language" type="xs:string" /> <!--
-                                            este
-                                        xs:string se refiere al contenido del atributo-->
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-
-                </xs:element>
+                <xs:element name="final" type="tns:ClassType" />
                 <!-- Aquí definición del elemento abstract -->
-                <xs:element name="abstract">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <!-- definition -->
-                            <xs:element name="definition" type="xs:string" />
-                            <!-- declaration -->
-                            <xs:element name="declaration" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:simpleContent>
-                                        <xs:extension base="xs:string"> <!-- este xs:string se
-                                            refiere al
-                                contenido del elemento -->
-                                            <xs:attribute name="language" type="xs:string" /> <!--
-                                            este xs:string
-                                se refiere al contenido del atributo-->
-                                        </xs:extension>
-                                    </xs:simpleContent>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="abstract" type="tns:ClassType" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
+    <!-- Declaraicón de los tipos complejos para poder reutilizar -->
+    <!-- tipo complejo para los elementos final y abstract-->
+    <xs:complexType name="ClassType">
+        <xs:sequence>
+            <!-- definition -->
+            <xs:element name="definition" type="xs:string" />
+            <!-- declaration -->
+            <xs:element name="declaration" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string"> <!-- este xs:string se
+                                            refiere al
+                                        contenido del elemento -->
+                            <xs:attribute name="language" type="xs:string" /> <!--
+                                            este
+                                        xs:string se refiere al contenido del atributo-->
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

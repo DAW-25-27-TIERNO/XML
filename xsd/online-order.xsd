@@ -9,6 +9,7 @@
     - Total debe coincidir con suma de productos
     - Al menos un producto con cantidad > 1
   -->
+
     <xs:element name="order">
         <xs:complexType>
             <xs:sequence>

@@ -7,6 +7,7 @@
         <declaration language="java">public final class [name] { }</declaration>
         <declaration language="php">final class [name] { }</declaration>
     </final>
+    
     <abstract>
         <definition>Clase de la que no se pueden instanciar objetos</definition>
         <declaration language="java">public abstract class [name]</declaration>
