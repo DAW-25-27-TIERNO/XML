@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://tierno.es/order"
+elementFormDefault="qualified">
     <!-- 
     CREAR UN XML VÁLIDO QUE CUMPLA:
     - Pedido con 3-5 productos diferentes
@@ -14,7 +16,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="orderNumber" type="xs:ID" />
-                <xs:element name="orderDate" type="xs:dateTime" />
+                <xs:element name="orderDate" type="xs:dateTime" /> <!-- 2026-02-12T09:01:42 -->
                 <xs:element name="customer">
                     <xs:complexType>
                         <xs:sequence>

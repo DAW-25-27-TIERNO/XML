@@ -6,7 +6,7 @@
     <xs:element name="catalog">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="movie">
+                <xs:element name="movie" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="title" type="xs:string" />
@@ -14,7 +14,7 @@
                             <xs:element name="genre" type="tns:GenreType" maxOccurs="unbounded"/>
                             <xs:element name="rating" type="tns:RatingType" minOccurs="0"/>
                             <xs:element name="director" type="tns:DirectorType"/>
-
+                            <xs:element name="duration" type="xs:positiveInteger"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -48,7 +48,11 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="DirectorType">
-        
-    </xs:simpleType>
+    <xs:complexType name="DirectorType">
+        <xs:simpleContent>
+            <xs:restriction base="xs:string">
+                <xs:attribute name="nationality"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
 </xs:schema>
