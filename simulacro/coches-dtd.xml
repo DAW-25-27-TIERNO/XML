@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Crea coches.dtd y coches.xsd para que se valide el siguiente XML.
+En DTD deberás cumplir las restricciones abajo indicadas en cuanto a obligatoriedad de elementos, número de veces que aparecen o los que tienen un listado de posibles valores.
+
+RESTRICCIONES PARA EL XSD (y DTD):
+- Raíz: concesionario
+- Atributo obligatorio
+- Coches: de 1 a n coches
+- Cada coche:
+  - Atributo matrícula obligatorio
+  - Marca obligatoria
+  - Modelo obligatorio
+  - Año
+  - Kilómetros
+  - Precio
+  - Extras opcionales (puede haber 0 a n)
+-->
+<concesionario nombre="Autos Madrid">
+    <coche matricula="1234ABC">
+        <marca>Seat</marca>
+        <modelo>Ibiza</modelo>
+        <año>2020</año>
+        <kilometros>25000</kilometros>
+        <precio>14500.50</precio>
+        <extras>
+            <extra precio="450">Climatizador</extra>
+            <extra precio="300">Sensor de aparcamiento</extra>
+        </extras>
+    </coche>
+</concesionario>
