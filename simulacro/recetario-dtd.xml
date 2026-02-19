@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recetario SYSTEM "recetario.dtd">
+
 <!-- 
 Crea recetario.dtd y recetario.xsd para que se valide el siguiente XML.
 En DTD deberás cumplir las restricciones abajo indicadas en cuanto a obligatoriedad de elementos, número de veces que aparecen o los que tienen un listado de posibles valores.
@@ -36,7 +38,7 @@ RESTRICCIONES PARA EL XSD (y DTD):
         </pasos>
         <alergenos>
             <alergeno>
-                <nombre lang="es">Huevo</nombre>
+                <nombre lang="ar">Huevo</nombre>
                 <gravedad servicios-medicos="true">Media</gravedad>
             </alergeno>
         </alergenos>
