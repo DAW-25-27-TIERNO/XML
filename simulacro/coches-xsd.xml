@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 Crea coches.dtd y coches.xsd para que se valide el siguiente XML.
-En DTD deberás cumplir las restricciones abajo indicadas en cuanto a obligatoriedad de elementos, número de veces que aparecen o los que tienen un listado de posibles valores.
+En DTD deberás cumplir las restricciones abajo indicadas en cuanto a obligatoriedad de elementos,
+número de veces que aparecen o los que tienen un listado de posibles valores.
 
 RESTRICCIONES PARA EL XSD (y DTD):
 - Raíz: concesionario
@@ -16,7 +17,9 @@ RESTRICCIONES PARA EL XSD (y DTD):
   - Precio (decimal positivo)
   - Extras opcionales (0-5 elementos con atributo precio)
 -->
-<concesionario nombre="Autos Madrid">
+<concesionario nombre="Autos Madrid" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://tiernogalvan.es/coches"
+    xsi:schemaLocation="http://tiernogalvan.es/coches coches.xsd">
     <coche matricula="1234ABC">
         <marca>Seat</marca>
         <modelo>Ibiza</modelo>
