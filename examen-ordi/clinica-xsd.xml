@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 2 (6,5 PUNTOS)
+
+Crea clinica.xsd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL XSD:
+- Raíz: clinica con atributos nombre y ciudad obligatorios
+- De 1 a n elementos especialidad
+- Cada especialidad tiene:
+    - Atributo area obligatorio
+    - De 1 a n medico
+- Cada medico tiene:
+    - Atributos: colegiado (obligatorio), turno (obligatorio)
+    - colegiado debe seguir el patrón: COL seguido de 5 dígitos
+    - turno solo puede ser: manana, tarde
+    - Elementos en orden: nombre (obligatorio), consulta (obligatorio), pacientes (opcional)
+    - consulta es un elemento vacío con atributos numero y planta obligatorios
+    - pacientes contiene 0-n elementos paciente
+    - Cada paciente tiene atributo nss obligatorio y edad opcional, y elementos nombre y diagnostico (en ese orden)
+    - edad debe ser un entero entre 0 y 120
+
+NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
+-->
+<clinica nombre="Clínica SaludPlus" ciudad="Madrid">
+    <especialidad area="cardiologia">
+        <medico colegiado="COL12345" turno="manana">
+            <nombre>Dra. Ana García</nombre>
+            <consulta numero="3" planta="1"/>
+            <pacientes>
+                <paciente nss="123456789" edad="45">
+                    <nombre>Pedro Ruiz</nombre>
+                    <diagnostico>Hipertensión leve</diagnostico>
+                </paciente>
+                <paciente nss="987654321" edad="62">
+                    <nombre>Carmen Blanco</nombre>
+                    <diagnostico>Arritmia controlada</diagnostico>
+                </paciente>
+            </pacientes>
+        </medico>
+        <medico colegiado="COL67890" turno="tarde">
+            <nombre>Dr. Luis Martín</nombre>
+            <consulta numero="4" planta="1"/>
+        </medico>
+    </especialidad>
+    <especialidad area="traumatologia">
+        <medico colegiado="COL11111" turno="manana">
+            <nombre>Dra. Sofía Ramos</nombre>
+            <consulta numero="7" planta="2"/>
+            <pacientes>
+                <paciente nss="555444333" edad="28">
+                    <nombre>Jorge Vega</nombre>
+                    <diagnostico>Fractura de radio</diagnostico>
+                </paciente>
+            </pacientes>
+        </medico>
+    </especialidad>
+</clinica>
