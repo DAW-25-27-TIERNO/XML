@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 2 (6,5 PUNTOS)
+
+Crea recetas.xsd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL XSD:
+- Raíz: recetario con atributo fuente obligatorio
+- De 1 a n elementos categoria
+- Cada categoria tiene:
+    - Atributo tipo obligatorio
+    - De 1 a 20 receta
+- Cada receta tiene:
+    - Atributos: codigo (obligatorio), dificultad (obligatorio)
+    - codigo debe seguir el patrón: R seguido de 3 dígitos
+    - dificultad solo puede ser: facil, media, dificil
+    - Elementos en orden: nombre (obligatorio), descripcion (opcional), tiempoMin (obligatorio), ingredientes (obligatorio)
+    - tiempoMin debe ser un entero entre 1 y 600
+    - ingredientes contiene 1-n elementos ingrediente con atributos unidad y cantidad obligatorios
+    - unidad solo puede ser: g, kg, ml, l, ud
+
+NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
+-->
+<recetario fuente="GuisoMaster"
+xmlns="https://tierno.es/recetario"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://tierno.es/recetario recetas.xsd">
+    <categoria tipo="entrante">
+        <receta codigo="R001" dificultad="facil">
+            <nombre>Gazpacho andaluz</nombre>
+            <descripcion>Sopa fría de tomate y verduras frescas</descripcion>
+            <tiempoMin>15</tiempoMin>
+            <ingredientes>
+                <ingrediente unidad="g" cantidad="500">Tomate</ingrediente>
+                <ingrediente unidad="ml" cantidad="100">Aceite de oliva</ingrediente>
+            </ingredientes>
+        </receta>
+        <receta codigo="R002" dificultad="media">
+            <nombre>Croquetas de jamón</nombre>
+            <tiempoMin>45</tiempoMin>
+            <ingredientes>
+                <ingrediente unidad="g" cantidad="200">Jamón serrano</ingrediente>
+                <ingrediente unidad="ml" cantidad="500">Leche</ingrediente>
+                <ingrediente unidad="g" cantidad="80">Harina</ingrediente>
+            </ingredientes>
+        </receta>
+    </categoria>
+    <categoria tipo="principal">
+        <receta codigo="R003" dificultad="dificil">
+            <nombre>Cochinillo asado</nombre>
+            <descripcion>Receta tradicional segoviana al horno</descripcion>
+            <tiempoMin>180</tiempoMin>
+            <ingredientes>
+                <ingrediente unidad="kg" cantidad="4">Cochinillo</ingrediente>
+                <ingrediente unidad="g" cantidad="50">Manteca de cerdo</ingrediente>
+            </ingredientes>
+        </receta>
+    </categoria>
+</recetario>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://tierno.es/recetario"
+    elementFormDefault="qualified"
+    xmlns:recet="https://tierno.es/recetario">
+    <xs:element name="recetario">
+        <xs:complexType>
+            <!-- categoria dentro de recetario -->
+            <xs:sequence>
+                <xs:element name="categoria" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <!-- receta dentro de categoria -->
+                        <xs:sequence>
+                            <xs:element name="receta" minOccurs="1" maxOccurs="20">
+                                <xs:complexType>
+                                    <!-- nombre, descripcion, etc dentro de receta-->
+                                    <xs:sequence>
+                                        <!-- nombre es simple -->
+                                        <xs:element name="nombre" type="xs:string" />
+                                        <!-- descripcion es simple -->
+                                        <xs:element name="descripcion" type="xs:string" />
+                                        <!-- tiempoMin me lo llevo a un tipo externo -->
+                                        <xs:element name="tiempoMin" type="recet:tipoTiempo" />
+                                        <!-- ingredientes: -->
+                                        <xs:element name="ingredientes">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <!-- ingrediente dentro de ingredientes -->
+                                                    <xs:element name="ingrediente" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <!-- defino el contenido del elemento: -->
+                                                                <xs:extension base="xs:string"></xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <!-- atributos codigo y dificultad-->
+                                    <xs:attribute name="codigo" type="recet:tipoCodigo"
+                                        use="required" />
+                                    <xs:attribute name="dificultad" type="recet:tipoDificultad"
+                                        use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <!-- atributo tipo -->
+                        <xs:attribute name="tipo" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- atributo de recetario: -->
+            <xs:attribute name="fuente" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- tipoCodigo: -->
+    <xs:simpleType name="tipoCodigo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="R[0-9]{3}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- tipoDificultad: -->
+    <xs:simpleType name="tipoDificultad">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="facil" />
+            <xs:enumeration value="media" />
+            <xs:enumeration value="dificil" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- tipoTiempo: -->
+    <xs:simpleType name="tipoTiempo">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="600" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

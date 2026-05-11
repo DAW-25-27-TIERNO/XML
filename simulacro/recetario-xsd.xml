@@ -42,7 +42,7 @@ NOTAS: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atri
         <alergenos>
             <alergeno>
                 <gravedad servicios-medicos="true">Media</gravedad>
-                <nombre lang="es">Huevo</nombre>
+                <nombre lang="fr">Huevo</nombre>
             </alergeno>
         </alergenos>
     </receta>

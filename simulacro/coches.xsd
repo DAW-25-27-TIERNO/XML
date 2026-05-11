@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://tiernogalvan.es/coches" elementFormDefault="qualified" xmlns:coche="http://tiernogalvan.es/coches">
+    targetNamespace="http://tiernogalvan.es/coches" 
+    elementFormDefault="qualified" 
+    xmlns:coche="http://tiernogalvan.es/coches">
 
     <!-- Elemento raíz -->
     <xs:element name="concesionario">
@@ -49,6 +51,7 @@
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
+    
 
     <!-- Definición del tipo Extras -->
     <xs:complexType name="ExtrasType">
