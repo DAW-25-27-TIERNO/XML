@@ -51,12 +51,10 @@
                                         </xs:element>
                                     </xs:sequence>
                                     <!-- atributos de medico -->
-                                    <!-- en este fichero he llamado al namespace "clinica":
-                                    xmlns:clinica="..."-->
+                                    <!-- NOTA: en este fichero el namespace se llama "clinica": xmlns:clinica="...". Por tanto referencio estos tipos desde ese namespace: clinica:tipoColegiado, clinica:tipoTurno, etc-->
                                     <xs:attribute name="colegiado" type="clinica:tipoColegiado" />
                                     <xs:attribute name="turno" type="clinica:tipoTurno" />
                                 </xs:complexType>
-
                             </xs:element>
                         </xs:sequence>
                         <!-- atributos de especialidad -->
@@ -70,17 +68,22 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- tipoColegiado: -->
     <xs:simpleType name="tipoColegiado">
         <xs:restriction base="xs:string">
             <xs:pattern value="COL[0-9]{5}"></xs:pattern>
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- tipoTurno: -->
     <xs:simpleType name="tipoTurno">
         <xs:restriction base="xs:string">
             <xs:enumeration value="manana" />
             <xs:enumeration value="tarde" />
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- tipoEdad: -->
     <xs:simpleType name="tipoEdad">
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="0"/>
