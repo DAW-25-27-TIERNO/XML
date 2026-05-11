@@ -17,8 +17,8 @@
                                     <xs:sequence>
                                         <!-- nombre es simple -->
                                         <xs:element name="nombre" type="xs:string" />
-                                        <!-- descripcion es simple -->
-                                        <xs:element name="descripcion" type="xs:string" />
+                                        <!-- descripcion es simple (y opcional: minOccurs)-->
+                                        <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
                                         <!-- tiempoMin me lo llevo a un tipo externo -->
                                         <xs:element name="tiempoMin" type="recet:tipoTiempo" />
                                         <!-- ingredientes: -->
@@ -30,7 +30,12 @@
                                                         <xs:complexType>
                                                             <xs:simpleContent>
                                                                 <!-- defino el contenido del elemento: -->
-                                                                <xs:extension base="xs:string"></xs:extension>
+                                                                <xs:extension base="xs:string">
+                                                                    <!-- atributo unidad (tipo externo) -->
+                                                                    <xs:attribute name="unidad" type="recet:tipoUnidad"/>
+                                                                    <!-- atributo cantidad (int) -->
+                                                                    <xs:attribute name="cantidad" type="xs:positiveInteger"/>
+                                                                </xs:extension>
                                                             </xs:simpleContent>
                                                         </xs:complexType>
                                                     </xs:element>
@@ -79,4 +84,15 @@
             <xs:maxInclusive value="600" />
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- tipoUnidad -->
+     <xs:simpleType name="tipoUnidad">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="g"/>
+            <xs:enumeration value="kg"/>
+            <xs:enumeration value="ml"/>
+            <xs:enumeration value="l"/>
+            <xs:enumeration value="ud"/>
+        </xs:restriction>
+     </xs:simpleType>
 </xs:schema>
