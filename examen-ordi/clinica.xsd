@@ -1,93 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="https://tierno.es/clinica"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    elementFormDefault="qualified"
-    xmlns:clinica="https://tierno.es/clinica">
+    elementFormDefault="qualified">
     <xs:element name="clinica">
         <xs:complexType>
-            <!-- sequence de clinica -->
+            <!-- secuencia: especialidad-->
             <xs:sequence>
-                <xs:element name="especialidad" maxOccurs="unbounded">
+                <xs:element name="especialidad">
                     <xs:complexType>
-                        <!-- sequence de especialidad -->
+                        <!-- secuencia: medico-->
                         <xs:sequence>
-                            <xs:element name="medico" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <!-- sequence de medico -->
-                                    <xs:sequence>
-                                        <!-- nombre -->
-                                        <xs:element name="nombre" type="xs:string" />
-                                        <!-- consulta -->
-                                        <xs:element name="consulta">
-                                            <xs:complexType>
-                                                <xs:attribute name="numero"
-                                                    type="xs:positiveInteger" use="required" />
-                                                <xs:attribute name="planta"
-                                                    type="xs:positiveInteger" use="required" />
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <!-- pacientes -->
-                                        <xs:element name="pacientes" minOccurs="0">
-                                            <xs:complexType>
-                                                <!-- sequence de pacientes -->
-                                                <xs:sequence>
-                                                    <xs:element name="paciente" minOccurs="0"
-                                                        maxOccurs="unbounded">
-                                                        <xs:complexType>
-                                                            <!-- sequence de paciente -->
-                                                            <xs:sequence>
-                                                                <xs:element name="nombre" type="xs:string"/>
-                                                                <xs:element name="diagnostico" type="xs:string"/>
-                                                            </xs:sequence>
-                                                            <!-- atributos de paciente -->
-                                                             <xs:attribute name="nss" use="required" type="xs:string"/>
-                                                             <xs:attribute name="edad" use="optional" type="clinica:tipoEdad"/>
-                                                        </xs:complexType>
-                                                    </xs:element>
-
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                    <!-- atributos de medico -->
-                                    <!-- NOTA: en este fichero el namespace se llama "clinica": xmlns:clinica="...". Por tanto referencio estos tipos desde ese namespace: clinica:tipoColegiado, clinica:tipoTurno, etc-->
-                                    <xs:attribute name="colegiado" type="clinica:tipoColegiado" />
-                                    <xs:attribute name="turno" type="clinica:tipoTurno" />
-                                </xs:complexType>
-                            </xs:element>
+                           <!-- TODO --> 
                         </xs:sequence>
-                        <!-- atributos de especialidad -->
-                        <xs:attribute name="area" type="xs:string" use="required" />
+                        <!--atributo: area-->
+                        <!-- TODO --> 
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
-            <!-- atributos de clinica -->
-            <xs:attribute name="nombre" type="xs:string" use="required" />
-            <xs:attribute name="ciudad" type="xs:string" use="required" />
+
+            <!-- atributos: nombre y ciudad-->
+            <xs:attribute name="nombre" type="xs:string" />
+            <xs:attribute name="ciudad" type="xs:string" />
         </xs:complexType>
     </xs:element>
 
-    <!-- tipoColegiado: -->
-    <xs:simpleType name="tipoColegiado">
-        <xs:restriction base="xs:string">
-            <xs:pattern value="COL[0-9]{5}"></xs:pattern>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <!-- tipoTurno: -->
-    <xs:simpleType name="tipoTurno">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="manana" />
-            <xs:enumeration value="tarde" />
-        </xs:restriction>
-    </xs:simpleType>
-
-    <!-- tipoEdad: -->
-    <xs:simpleType name="tipoEdad">
-        <xs:restriction base="xs:integer">
-            <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="120"/>
-        </xs:restriction>
-    </xs:simpleType>
 </xs:schema>

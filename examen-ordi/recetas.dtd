@@ -1,0 +1,17 @@
+<!ELEMENT recetario (categoria+)>
+<!-- Los atributos se pueden declarar debajo de cada elemento, o al final del todo -->
+
+<!ELEMENT categoria (receta+)>
+<!ELEMENT receta (nombre, descripcion?, tiempoMin, ingredientes)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT tiempoMin (#PCDATA)>
+<!ELEMENT ingredientes (ingrediente+)>
+<!ELEMENT ingrediente (#PCDATA)>
+
+<!ATTLIST recetario fuente CDATA #REQUIRED>
+<!ATTLIST categoria tipo CDATA #REQUIRED>
+<!ATTLIST receta codigo ID #REQUIRED
+            dificultad (facil|media|dificil) #REQUIRED>
+<!ATTLIST ingrediente unidad CDATA #REQUIRED>
+<!ATTLIST ingrediente cantidad CDATA #REQUIRED>

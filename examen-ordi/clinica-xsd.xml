@@ -22,10 +22,11 @@ RESTRICCIONES PARA EL XSD:
 
 NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
 -->
-<clinica nombre="Clínica SaludPlus" ciudad="Madrid"
-xmlns="https://tierno.es/clinica"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="https://tierno.es/clinica clinica.xsd">
+<clinica nombre="Clínica SaludPlus"
+    ciudad="Madrid"
+    xmlns="https://tierno.es/clinica"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://tierno.es/clinica clinica.xsd">
     <especialidad area="cardiologia">
         <medico colegiado="COL12345" turno="manana">
             <nombre>Dra. Ana García</nombre>
