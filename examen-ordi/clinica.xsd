@@ -1,27 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="https://tierno.es/clinica"
-    elementFormDefault="qualified">
+    elementFormDefault="qualified"
+    xmlns:clin="https://tierno.es/clinica"
+>
     <xs:element name="clinica">
         <xs:complexType>
-            <!-- secuencia: especialidad-->
-            <xs:sequence>
+            <!-- sequence: 1 a n elementos especialidad -->
+            <xs:sequence maxOccurs="unbounded">
                 <xs:element name="especialidad">
                     <xs:complexType>
-                        <!-- secuencia: medico-->
-                        <xs:sequence>
-                           <!-- TODO --> 
+                        <!-- sequence de especialidad: de 1 a n elementos medico (minOccurs="1" no
+                        haría falta, es su
+                        valor por defecto) -->
+                        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                            <xs:element name="medico">
+                                <xs:complexType>
+                                    <!-- sequence de medico: de 0 a n-->
+                                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                                        <xs:element name="nombre" type="xs:string" />
+                                        <xs:element name="consulta">
+                                            <xs:complexType>
+                                                <xs:attribute name="numero" type="xs:integer" />
+                                                <xs:attribute name="planta" type="xs:integer" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="pacientes" minOccurs="0">
+                                            <xs:complexType>
+                                                <!-- sequence de pacientes: entre 1 y 7 elementos -->
+                                                <xs:sequence minOccurs="1" maxOccurs="7">
+                                                    <xs:element name="paciente">
+                                                        <xs:complexType>
+                                                            <!-- sequence de paciente -->
+                                                            <xs:sequence>
+                                                                <xs:element name="nombre"
+                                                                    type="xs:string" />
+                                                                <xs:element name="diagnostico"
+                                                                    type="xs:string" />
+                                                            </xs:sequence>
+
+                                                            <!-- atributos de paciente -->
+                                                            <xs:attribute name="nss"
+                                                                type="xs:string" />
+                                                            <xs:attribute name="edad"
+                                                                type="clin:TipoEdad" use="optional" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <!-- atributos de medico -->
+                                    <xs:attribute name="colegiado" type="clin:TipoColegiado" />
+                                    <xs:attribute name="turno" type="clin:TipoTurno" />
+                                </xs:complexType>
+                            </xs:element>
                         </xs:sequence>
-                        <!--atributo: area-->
-                        <!-- TODO --> 
+                        <!-- atributos especialidad -->
+                        <xs:attribute name="area" type="xs:string" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
 
-            <!-- atributos: nombre y ciudad-->
+            <!-- atributos de clinica -->
             <xs:attribute name="nombre" type="xs:string" />
             <xs:attribute name="ciudad" type="xs:string" />
+
         </xs:complexType>
     </xs:element>
+
+    <!-- tipos con nombre: -->
+    <!-- para colegiado -->
+    <xs:simpleType name="TipoColegiado">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="COL\d{5}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- tipo para turno -->
+    <xs:simpleType name="TipoTurno">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="manana" />
+            <xs:enumeration value="tarde" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--  edad debe ser un entero entre 0 y 120 -->
+    <xs:simpleType name="TipoEdad">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="120" />
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>

@@ -9,14 +9,14 @@ RESTRICCIONES PARA EL XSD:
 - De 1 a n elementos especialidad
 - Cada especialidad tiene:
     - Atributo area obligatorio
-    - De 1 a n medico
+    - De 0 a n medico
 - Cada medico tiene:
     - Atributos: colegiado (obligatorio), turno (obligatorio)
     - colegiado debe seguir el patrón: COL seguido de 5 dígitos
     - turno solo puede ser: manana, tarde
     - Elementos en orden: nombre (obligatorio), consulta (obligatorio), pacientes (opcional)
     - consulta es un elemento vacío con atributos numero y planta obligatorios
-    - pacientes contiene 0-n elementos paciente
+    - pacientes contiene 1 y 7 elementos paciente
     - Cada paciente tiene atributo nss obligatorio y edad opcional, y elementos nombre y diagnostico (en ese orden)
     - edad debe ser un entero entre 0 y 120
 
@@ -32,11 +32,11 @@ NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atrib
             <nombre>Dra. Ana García</nombre>
             <consulta numero="3" planta="1"/>
             <pacientes>
-                <paciente nss="123456789" edad="45">
+                <paciente nss="123456789" >
                     <nombre>Pedro Ruiz</nombre>
                     <diagnostico>Hipertensión leve</diagnostico>
                 </paciente>
-                <paciente nss="987654321" edad="62">
+                <paciente nss="987654321" edad="120">
                     <nombre>Carmen Blanco</nombre>
                     <diagnostico>Arritmia controlada</diagnostico>
                 </paciente>
