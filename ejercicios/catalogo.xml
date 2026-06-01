@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo editorial="LibroMundo">
+
+  <seccion genero="novela">
+    <libro isbn="L0001" estado="disponible">
+      <titulo>El nombre de la rosa</titulo>
+      <sinopsis>Un monje investiga crímenes en una abadía medieval</sinopsis>
+      <paginas>512</paginas>
+      <autores>
+        <autor nacionalidad="italiana" siglo="XX">Umberto Eco</autor>
+      </autores>
+    </libro>
+    <libro isbn="L0002" estado="prestado">
+      <titulo>Fortunata y Jacinta</titulo>
+      <paginas>880</paginas>
+      <autores>
+        <autor nacionalidad="española" siglo="XIX">Benito Pérez Galdós</autor>
+      </autores>
+    </libro>
+  </seccion>
+
+  <seccion genero="poesia">
+    <libro isbn="L0003" estado="reservado">
+      <titulo>Las flores del mal</titulo>
+      <sinopsis>Colección de poemas simbolistas sobre belleza y decadencia</sinopsis>
+      <paginas>320</paginas>
+      <autores>
+        <autor nacionalidad="francesa" siglo="XIX">Charles Baudelaire</autor>
+        <autor nacionalidad="francesa" siglo="XIX">Théophile Gautier</autor>
+      </autores>
+    </libro>
+  </seccion>
+
+</catalogo>
