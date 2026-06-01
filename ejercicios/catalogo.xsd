@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://tierno.es/catalogo"
+    elementFormDefault="qualified"
+    xmlns:catal="https://tierno.es/catalogo">
+    <xs:element name="catalogo">
+        <xs:complexType>
+            <!-- secuencia de catalogo -->
+            <xs:sequence>
+                <xs:element name="seccion" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <!-- sequence de seccion -->
+                        <xs:sequence>
+                            <xs:element name="libro" minOccurs="1" maxOccurs="20">
+                                <xs:complexType>
+                                    <!-- sequence de libro-->
+                                    <xs:sequence>
+                                        <xs:element name="titulo" type="xs:string" />
+                                        <xs:element name="sinopsis" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="paginas" type="catal:TipoPaginas" />
+                                        <xs:element name="autores">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="autor" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:string">
+                                                                    <xs:attribute
+                                                                        name="nacionalidad"
+                                                                        type="catal:TipoNac" />
+                                                                    <xs:attribute name="siglo"
+                                                                        type="xs:string" />
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <!-- atributos de libro-->
+                                    <xs:attribute name="isbn" type="catal:TipoIsbn" use="required"/>
+                                    <xs:attribute name="estado" type="catal:TipoEstado" />
+                                </xs:complexType>
+
+                            </xs:element>
+                        </xs:sequence>
+                        <!-- atributos de seccion -->
+                        <xs:attribute name="genero" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- atributos de catalogo -->
+            <xs:attribute name="editorial" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- elementos con nombre-->
+     <!-- tipo con nombre para isbn -->
+      <xs:simpleType name="TipoIsbn">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="L\d{4}"/>
+        </xs:restriction>
+      </xs:simpleType>
+     <!-- tipo con nombre para estado -->
+      <xs:simpleType name="TipoEstado">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="disponible"/>
+            <xs:enumeration value="prestado"/>
+            <xs:enumeration value="reservado"/>
+        </xs:restriction>
+      </xs:simpleType>
+     <!-- tipo con nombre para paginas: entre 1 y 9999 -->
+      <xs:simpleType name="TipoPaginas">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="9999"/>
+        </xs:restriction>
+      </xs:simpleType>
+     <!-- tipo con nombre para nacionalidad -->
+      <xs:simpleType name="TipoNac">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="española"/>
+            <xs:enumeration value="francesa"/>
+            <xs:enumeration value="inglesa"/>
+            <xs:enumeration value="alemana"/>
+            <xs:enumeration value="italiana"/>
+        </xs:restriction>
+      </xs:simpleType>
+</xs:schema>

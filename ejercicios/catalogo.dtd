@@ -1,0 +1,14 @@
+<!ELEMENT catalogo (seccion+)>
+<!ELEMENT seccion (libro+)>
+<!ELEMENT libro (titulo, sinopsis?, paginas, autores)>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT sinopsis (#PCDATA)>
+
+
+<!ATTLIST catalogo editorial CDATA #REQUIRED>
+<!ATTLIST seccion genero CDATA #REQUIRED>
+
+
+
+
+<!ATTLIST autor nacionalidad (española|francesa|inglesa|alemana) #REQUIRED>
