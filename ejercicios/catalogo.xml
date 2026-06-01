@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Crea biblioteca.xsd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL XSD:
+- Raíz: catalogo con atributo editorial obligatorio
+- De 1 a n elementos seccion
+- Cada seccion tiene:
+    - Atributo genero obligatorio
+    - De 1 a 20 libro
+- Cada libro tiene:
+    - Atributos: isbn (obligatorio), estado (obligatorio)
+    - isbn debe seguir el patrón: L seguido de 4 dígitos
+    - estado solo puede ser: disponible, prestado, reservado
+    - Elementos en orden: titulo (obligatorio), sinopsis (opcional), paginas (obligatorio), autores (obligatorio)
+    - paginas debe ser un entero entre 1 y 9999
+    - autores contiene 1-n elementos autor con atributos nacionalidad y siglo obligatorios
+    - nacionalidad solo puede ser: española, francesa, inglesa, alemana, italiana
+NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
+-->
 <catalogo editorial="LibroMundo">
 
   <seccion genero="novela">
