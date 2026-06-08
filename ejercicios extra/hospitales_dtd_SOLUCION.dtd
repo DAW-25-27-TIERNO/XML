@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SOLUCIÓN: red_hospitales.dtd -->
+
+<!ELEMENT red (hospital+)>
+<!ATTLIST red
+    nombre  CDATA  #REQUIRED
+    region  CDATA  #REQUIRED
+>
+
+<!ELEMENT hospital (paciente+)>
+<!ATTLIST hospital
+    especialidad  CDATA  #REQUIRED
+>
+
+<!ELEMENT paciente (nombre, medico, ficha, tratamientos?)>
+<!ATTLIST paciente
+    nss     CDATA                              #REQUIRED
+    estado  (ingresado|alta|urgencias)         #REQUIRED
+>
+
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT medico (#PCDATA)>
+
+<!ELEMENT ficha EMPTY>
+<!ATTLIST ficha
+    habitacion     CDATA  #REQUIRED
+    fecha_ingreso  CDATA  #REQUIRED
+>
+
+<!ELEMENT tratamientos (tratamiento*)>
+
+<!ELEMENT tratamiento (dosis_inicio, dosis_fin)>
+<!ATTLIST tratamiento
+    farmaco  CDATA  #REQUIRED
+    dosis    CDATA  #IMPLIED
+>
+
+<!ELEMENT dosis_inicio (#PCDATA)>
+<!ELEMENT dosis_fin    (#PCDATA)>

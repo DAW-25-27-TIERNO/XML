@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 1 (3,5 PUNTOS)
+
+Nota importante: es imprescindible que el XML y el DTD estén correctamente vinculados. De no ser así, no se corregirá el ejercicio.
+
+Crea torneo.dtd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL DTD:
+- Raíz: torneo con atributos nombre y edicion obligatorios
+- De 1 a n elementos categoria
+- Cada categoria tiene:
+    - Atributo genero obligatorio
+    - De 1 a n equipo
+- Cada equipo tiene:
+    - Atributos: codigo (obligatorio), resultado (obligatorio, valores: eliminado, clasificado, campeon)
+    - Elementos en orden: nombre (obligatorio), capitan (obligatorio), ficha (obligatorio), partidas (opcional)
+    - ficha es un elemento vacío con atributos puntos y ranking obligatorios
+    - partidas contiene 0-n elementos partida
+    - Cada partida tiene atributo rival obligatorio y ronda opcional, y elementos fecha y resultado_marcador (en ese orden)
+-->
+<torneo nombre="Liga Nacional de Esports 2025" edicion="VII">
+    <categoria genero="estrategia">
+        <equipo codigo="EQU-ALF" resultado="campeon">
+            <nombre>Alpha Force</nombre>
+            <capitan>Javier Moreno</capitan>
+            <ficha puntos="320" ranking="1"/>
+            <partidas>
+                <partida rival="Beta Squad" ronda="3">
+                    <fecha>2025-04-10</fecha>
+                    <resultado_marcador>2-0</resultado_marcador>
+                </partida>
+                <partida rival="Omega Team">
+                    <fecha>2025-04-24</fecha>
+                    <resultado_marcador>2-1</resultado_marcador>
+                </partida>
+            </partidas>
+        </equipo>
+        <equipo codigo="EQU-BET" resultado="eliminado">
+            <nombre>Beta Squad</nombre>
+            <capitan>Sara Díaz</capitan>
+            <ficha puntos="150" ranking="4"/>
+        </equipo>
+    </categoria>
+    <categoria genero="accion">
+        <equipo codigo="EQU-NXG" resultado="clasificado">
+            <nombre>NexGen Wolves</nombre>
+            <capitan>Pablo Ortega</capitan>
+            <ficha puntos="210" ranking="2"/>
+            <partidas>
+                <partida rival="Dark Riders" ronda="2">
+                    <fecha>2025-03-15</fecha>
+                    <resultado_marcador>1-0</resultado_marcador>
+                </partida>
+            </partidas>
+        </equipo>
+    </categoria>
+</torneo>

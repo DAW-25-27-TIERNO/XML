@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 2 (6,5 PUNTOS)
+
+Nota importante: es imprescindible que el XML y el XSD estén correctamente vinculados. De no ser así, no se corregirá el ejercicio.
+
+Crea torneo.xsd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL XSD:
+- Raíz: torneo con atributos nombre y edicion obligatorios
+- De 1 a n elementos categoria
+- Cada categoria tiene:
+    - Atributo genero obligatorio
+    - De 1 a n equipo
+- Cada equipo tiene:
+    - Atributos: codigo (obligatorio), resultado (obligatorio)
+    - codigo debe seguir el patrón: EQU- seguido de exactamente 3 letras mayúsculas
+    - resultado solo puede ser: eliminado, clasificado, campeon
+    - Elementos en orden: nombre (obligatorio), capitan (obligatorio), ficha (obligatorio), partidas (opcional)
+    - ficha es un elemento vacío con atributos puntos (entero positivo) y ranking (entero positivo) obligatorios
+    - partidas contiene 0-n elementos partida
+    - Cada partida tiene atributo rival obligatorio y ronda opcional, y elementos fecha y resultado_marcador (en ese orden)
+    - ronda debe ser un entero entre 1 y 7
+
+NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
+-->
+<torneo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="torneo.xsd"
+        nombre="Liga Nacional de Esports 2025" edicion="VII">
+    <categoria genero="estrategia">
+        <equipo codigo="EQU-ALF" resultado="campeon">
+            <nombre>Alpha Force</nombre>
+            <capitan>Javier Moreno</capitan>
+            <ficha puntos="320" ranking="1"/>
+            <partidas>
+                <partida rival="Beta Squad" ronda="3">
+                    <fecha>2025-04-10</fecha>
+                    <resultado_marcador>2-0</resultado_marcador>
+                </partida>
+                <partida rival="Omega Team">
+                    <fecha>2025-04-24</fecha>
+                    <resultado_marcador>2-1</resultado_marcador>
+                </partida>
+            </partidas>
+        </equipo>
+        <equipo codigo="EQU-BET" resultado="eliminado">
+            <nombre>Beta Squad</nombre>
+            <capitan>Sara Díaz</capitan>
+            <ficha puntos="150" ranking="4"/>
+        </equipo>
+    </categoria>
+    <categoria genero="accion">
+        <equipo codigo="EQU-NXG" resultado="clasificado">
+            <nombre>NexGen Wolves</nombre>
+            <capitan>Pablo Ortega</capitan>
+            <ficha puntos="210" ranking="2"/>
+            <partidas>
+                <partida rival="Dark Riders" ronda="2">
+                    <fecha>2025-03-15</fecha>
+                    <resultado_marcador>1-0</resultado_marcador>
+                </partida>
+            </partidas>
+        </equipo>
+    </categoria>
+</torneo>

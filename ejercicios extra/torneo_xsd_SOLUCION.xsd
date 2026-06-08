@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SOLUCIÓN: torneo.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- TIPOS CON NOMBRE -->
+
+    <!-- 1. Patrón para el código de equipo: EQU- seguido de exactamente 3 letras mayúsculas -->
+    <xs:simpleType name="tipoCodigo">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="EQU-[A-Z]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- 2. Enumeración para el resultado del equipo -->
+    <xs:simpleType name="tipoResultado">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="eliminado"/>
+            <xs:enumeration value="clasificado"/>
+            <xs:enumeration value="campeon"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- 3. Entero entre 1 y 7 para la ronda -->
+    <xs:simpleType name="tipoRonda">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- DEFINICIÓN DE ELEMENTOS -->
+
+    <xs:element name="torneo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="categoria" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="equipo" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre"  type="xs:string"/>
+                                        <xs:element name="capitan" type="xs:string"/>
+                                        <xs:element name="ficha">
+                                            <xs:complexType>
+                                                <xs:attribute name="puntos"  type="xs:positiveInteger" use="required"/>
+                                                <xs:attribute name="ranking" type="xs:positiveInteger" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="partidas" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="partida" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="fecha"              type="xs:string"/>
+                                                                <xs:element name="resultado_marcador" type="xs:string"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="rival" type="xs:string" use="required"/>
+                                                            <xs:attribute name="ronda" type="tipoRonda" use="optional"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="codigo"    type="tipoCodigo"    use="required"/>
+                                    <xs:attribute name="resultado" type="tipoResultado" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="genero" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="nombre"  type="xs:string" use="required"/>
+            <xs:attribute name="edicion" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

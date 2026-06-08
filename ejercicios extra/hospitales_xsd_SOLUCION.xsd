@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SOLUCIÓN: red_hospitales.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- TIPOS CON NOMBRE -->
+
+    <!-- 1. Patrón para el NSS: NSS seguido de exactamente 8 dígitos -->
+    <xs:simpleType name="tipoNSS">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="NSS[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- 2. Enumeración para el estado del paciente -->
+    <xs:simpleType name="tipoEstado">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ingresado"/>
+            <xs:enumeration value="alta"/>
+            <xs:enumeration value="urgencias"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- 3. Entero entre 1 y 5 para la dosis -->
+    <xs:simpleType name="tipoDosis">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- DEFINICIÓN DE ELEMENTOS -->
+
+    <xs:element name="red">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hospital" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="paciente" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre"  type="xs:string"/>
+                                        <xs:element name="medico"  type="xs:string"/>
+                                        <xs:element name="ficha">
+                                            <xs:complexType>
+                                                <xs:attribute name="habitacion"    type="xs:positiveInteger" use="required"/>
+                                                <xs:attribute name="fecha_ingreso" type="xs:string"          use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="tratamientos" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="tratamiento" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="dosis_inicio" type="xs:string"/>
+                                                                <xs:element name="dosis_fin"    type="xs:string"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="farmaco" type="xs:string"  use="required"/>
+                                                            <xs:attribute name="dosis"   type="tipoDosis"  use="optional"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="nss"    type="tipoNSS"    use="required"/>
+                                    <xs:attribute name="estado" type="tipoEstado" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="especialidad" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="nombre" type="xs:string" use="required"/>
+            <xs:attribute name="region" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

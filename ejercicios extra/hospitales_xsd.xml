@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+EJERCICIO 2 (6,5 PUNTOS)
+
+Nota importante: es imprescindible que el XML y el XSD estén correctamente vinculados. De no ser así, no se corregirá el ejercicio.
+
+Crea red_hospitales.xsd para que se valide el siguiente XML y cumpla con las restricciones indicadas.
+
+RESTRICCIONES PARA EL XSD:
+- Raíz: red con atributos nombre y region obligatorios
+- De 1 a n elementos hospital
+- Cada hospital tiene:
+    - Atributo especialidad obligatorio
+    - De 1 a n paciente
+- Cada paciente tiene:
+    - Atributos: nss (obligatorio), estado (obligatorio)
+    - nss debe seguir el patrón: NSS seguido de 8 dígitos
+    - estado solo puede ser: ingresado, alta, urgencias
+    - Elementos en orden: nombre (obligatorio), medico (obligatorio), ficha (obligatorio), tratamientos (opcional)
+    - ficha es un elemento vacío con atributos habitacion (entero positivo) y fecha_ingreso obligatorios
+    - tratamientos contiene 0-n elementos tratamiento
+    - Cada tratamiento tiene atributo farmaco obligatorio y dosis opcional, y elementos dosis_inicio y dosis_fin (en ese orden)
+    - dosis debe ser un entero entre 1 y 5
+
+NOTA: Tienes que hacer al menos 3 tipos con nombre aplicados a elementos o atributos.
+-->
+<red xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="red_hospitales.xsd"
+     nombre="Red Sanitaria Norte" region="Castilla y León">
+    <hospital especialidad="cardiología">
+        <paciente nss="NSS12345678" estado="ingresado">
+            <nombre>María González López</nombre>
+            <medico>Dr. Ramírez</medico>
+            <ficha habitacion="312" fecha_ingreso="2025-03-10"/>
+            <tratamientos>
+                <tratamiento farmaco="Atenolol" dosis="2">
+                    <dosis_inicio>2025-03-10</dosis_inicio>
+                    <dosis_fin>2025-03-20</dosis_fin>
+                </tratamiento>
+                <tratamiento farmaco="Furosemida">
+                    <dosis_inicio>2025-03-12</dosis_inicio>
+                    <dosis_fin>2025-03-18</dosis_fin>
+                </tratamiento>
+            </tratamientos>
+        </paciente>
+        <paciente nss="NSS87654321" estado="alta">
+            <nombre>Carlos Fernández Ruiz</nombre>
+            <medico>Dra. Morales</medico>
+            <ficha habitacion="205" fecha_ingreso="2025-02-28"/>
+        </paciente>
+    </hospital>
+    <hospital especialidad="traumatología">
+        <paciente nss="NSS11223344" estado="urgencias">
+            <nombre>Laura Sánchez Vega</nombre>
+            <medico>Dr. Iglesias</medico>
+            <ficha habitacion="101" fecha_ingreso="2025-04-05"/>
+            <tratamientos>
+                <tratamiento farmaco="Ibuprofeno" dosis="3">
+                    <dosis_inicio>2025-04-05</dosis_inicio>
+                    <dosis_fin>2025-04-12</dosis_fin>
+                </tratamiento>
+            </tratamientos>
+        </paciente>
+    </hospital>
+</red>

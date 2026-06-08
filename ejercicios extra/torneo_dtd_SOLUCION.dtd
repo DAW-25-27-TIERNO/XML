@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SOLUCIÓN: torneo.dtd -->
+
+<!ELEMENT torneo (categoria+)>
+<!ATTLIST torneo
+    nombre  CDATA  #REQUIRED
+    edicion CDATA  #REQUIRED
+>
+
+<!ELEMENT categoria (equipo+)>
+<!ATTLIST categoria
+    genero  CDATA  #REQUIRED
+>
+
+<!ELEMENT equipo (nombre, capitan, ficha, partidas?)>
+<!ATTLIST equipo
+    codigo    CDATA                                  #REQUIRED
+    resultado (eliminado|clasificado|campeon)        #REQUIRED
+>
+
+<!ELEMENT nombre   (#PCDATA)>
+<!ELEMENT capitan  (#PCDATA)>
+
+<!ELEMENT ficha EMPTY>
+<!ATTLIST ficha
+    puntos   CDATA  #REQUIRED
+    ranking  CDATA  #REQUIRED
+>
+
+<!ELEMENT partidas (partida*)>
+
+<!ELEMENT partida (fecha, resultado_marcador)>
+<!ATTLIST partida
+    rival  CDATA  #REQUIRED
+    ronda  CDATA  #IMPLIED
+>
+
+<!ELEMENT fecha              (#PCDATA)>
+<!ELEMENT resultado_marcador (#PCDATA)>
